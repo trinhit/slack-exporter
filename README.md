@@ -4,28 +4,6 @@ This tool pulls Slack's users, channels (info, members, bookmarks), emojis, mess
 
 # Table of Contents
 
-- [Excuses First](#excuses-first)
-- [Basic Information](#basic-information)
-  - [What this tool does](#what-this-tool-does)
-  - [What it does not (yet)](#what-it-does-not-yet)
-- [Setup](#setup)
-  - [System Requirements](#system-requirements)
-  - [Create a Slack App](#create-a-slack-app)
-    - [Step 1: Sign into Slack](#step-1-sign-into-slack)
-    - [Step 2: Get into the desire workspace and obtain your organization ID](#step-2-get-into-the-desire-workspace-and-obtain-your-organization-id)
-    - [Step 3: Create a new Slack app](#step-3-create-a-new-slack-app)
-    - [Step 4: Enable needed permissions for the new app](#step-4-enable-needed-permissions-for-the-new-app)
-    - [Step 5: Install the app to your workspace](#step-5-install-the-app-to-your-workspace)
-    - [Step 6: Spin up your environment](#step-6-spin-up-your-environment)
-    - [Step 7: Configurations](#step-7-configurations)
-- [Usage](#usage)
-  - [Get into your Docker container](#get-into-your-docker-container)
-  - [Pull everything](#pull-everything)
-  - [Pull only what you want](#pull-only-what-you-want)
-  - [Find the pulled data](#find-the-pulled-data)
-    - [Database](#database)
-    - [Files](#files)
-
 # Excuses First
 
 When writing this tool, I tried to spend least time and effort. The first priority was making it work as intended in a minimum amount of time. Therefore, the code is *nasty*! Please bear with it!
@@ -46,12 +24,6 @@ At the moment, the tool can only pull information into database and download fil
 
 # Setup
 
-## System Requirements
-
-* PHP 7.0+
-* Apache or Nginx
-* MySQL or MariaDB
-
 ## Create a Slack App
 
 In order to connect to Slack API, you need to create an app. The following guide shows you how to create a Slack app.
@@ -60,7 +32,7 @@ In order to connect to Slack API, you need to create an app. The following guide
 
 Go to [https://slack.com/signin](https://slack.com/signin) and sign into your Slack account if you're not signed in.
 
-### Step 2: Get into the desire workspace and obtain your organization ID
+### Step 2: Get into the desire workspace
 
 After signing in, you will see a list of your workspaces as below:
 ![slackworkspaces.png](./assets/slack-workspaces.png)
@@ -133,9 +105,15 @@ You'll need the token later on.
 
 **Treat the User OAuth Token as password! DO NOT PROVIDE IT TO ANYONE! Anyone having this token will be able to see all of your private messages!**
 
-### Step 6: Spin up your environment
+## Spin up your environment
 
-As long as your computer has the required software in the **System Requirements** section above, you can just put the code into any folder on your computer then you're ready to run it.
+System requirements:
+
+* PHP 7.0+
+* Apache or Nginx
+* MySQL or MariaDB
+
+You can just put the code into any folder on your computer then you're ready to run it.
 
 **Using Docker? You're more than welcome!**
 
@@ -144,7 +122,7 @@ cd /path/to/slack-exporter
 docker compose up -d
 ```
 
-### Step 7: Configurations
+## Configurations
 
 Make a copy of the file `config.example.php` in the same folder and name the new file to `config.php`. Edit `config.php` and set the following values:
 
