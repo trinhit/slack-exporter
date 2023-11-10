@@ -2,21 +2,21 @@ version: "3.9"
 services:
   db:
     image: mariadb:jammy
-    container_name: slack_exporter_tool_db
-    hostname: slack_exporter_tool_db
+    container_name: slack_exporter_tool_db # feel free to change this
+    hostname: slack_exporter_tool_db # feel free to change this
     restart: unless-stopped
     environment:
-      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD:-root}
-      - MARIADB_USER=${MARIADB_USER:-exporter}
-      - MARIADB_PASSWORD=${MARIADB_PASSWORD:-exporter}
-      - MARIADB_DATABASE=${MARIADB_DATABASE:-exporter}
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD:-root} # feel free to change this
+      - MARIADB_USER=${MARIADB_USER:-exporter} # feel free to change this
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD:-exporter} # feel free to change this
+      - MARIADB_DATABASE=${MARIADB_DATABASE:-exporter} # feel free to change this
     volumes:
       - slack-exporter-db:/var/lib/mysql:delegated
 
   app:
     image: trinhit/php:8.2.2-apache # my custom-built Docker image
-    container_name: slack_exporter_tool_app
-    hostname: slack_exporter_tool_app
+    container_name: slack_exporter_tool_app # feel free to change this
+    hostname: slack_exporter_tool_app # feel free to change this
     restart: unless-stopped
     volumes:
       - .:/var/www/html:delegated
@@ -25,8 +25,8 @@ services:
 
   phpmyadmin:
     image: phpmyadmin
-    container_name: slack_exporter_tool_phpmyadmin
-    hostname: slack_exporter_tool_phpmyadmin
+    container_name: slack_exporter_tool_phpmyadmin # feel free to change this
+    hostname: slack_exporter_tool_phpmyadmin # feel free to change this
     healthcheck:
       test: curl -f http://localhost:80/ || exit 1
     ports:

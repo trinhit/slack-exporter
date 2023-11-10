@@ -140,7 +140,7 @@ As long as your computer has the required software in the **System Requirements*
 **Using Docker? You're more than welcome!**
 
 ```
-cd /path/to/slack_exporter_tool
+cd /path/to/slack-exporter
 docker compose up -d
 ```
 
