@@ -26,13 +26,13 @@ This tool pulls Slack's users, channels (info, members, bookmarks), emojis, mess
     - [Database](#database)
     - [Files](#files)
 
-# Excuses First {#excuses-first}
+# Excuses First
 
 When writing this tool, I tried to spend least time and effort. The first priority was making it work as intended in a minimum amount of time. Therefore, the code is *nasty*! Please bear with it!
 
-# Basic Information {#basic-information}
+# Basic Information
 
-## What this tool does {#what-this-tool-does}
+## What this tool does
 
 * Pull users in a organization into database as well as downloading their avatars into local file system
 * Pull Slack's emojis and your organization's custom emojis into database as well as downloading the custom emojis into local file system
@@ -46,7 +46,7 @@ At the moment, the tool can only pull information into database and download fil
 
 # Setup
 
-## System Requirements {#system-requirements}
+## System Requirements
 
 * PHP 7.0+
 * Apache or Nginx
