@@ -4,6 +4,27 @@ This tool pulls Slack's users, channels (info, members, bookmarks), emojis, mess
 
 # Table of Contents
 
+- [Excuses First](#excuses-first)
+- [Basic Information](#basic-information)
+  - [What this tool does](#what-this-tool-does)
+  - [What it does not (yet)](#what-it-does-not-yet)
+- [Setup](#setup)
+  - [Create a Slack App](#create-a-slack-app)
+    - [Step 1: Sign into Slack](#step-1-sign-into-slack)
+    - [Step 2: Get into the desire workspace](#step-2-get-into-the-desire-workspace)
+    - [Step 3: Create a new Slack app](#step-3-create-a-new-slack-app)
+    - [Step 4: Enable needed permissions for the new app](#step-4-enable-needed-permissions-for-the-new-app)
+    - [Step 5: Install the app to your workspace](#step-5-install-the-app-to-your-workspace)
+  - [Spin up your environment](#spin-up-your-environment)
+  - [Configurations](#configurations)
+- [Usage](#usage)
+  - [Get into your Docker container](#get-into-your-docker-container)
+  - [Pull everything](#pull-everything)
+  - [Pull only what you want](#pull-only-what-you-want)
+  - [Find the pulled data](#find-the-pulled-data)
+    - [Database](#database)
+    - [Files](#files)
+
 # Excuses First
 
 When writing this tool, I tried to spend least time and effort. The first priority was making it work as intended in a minimum amount of time. Therefore, the code is *nasty*! Please bear with it!
