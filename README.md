@@ -128,10 +128,10 @@ You'll need the token later on.
 
 **Note:** If you make any changes in the scopes, you'll need to click on the **Reinstall to Workspace** button to refresh the app permissions
 
-**WARNING:
+**WARNING:**
 ![warningsign.png](./assets/warning-sign.png)
 
-Treat the User OAuth Token as password! DO NOT PROVIDE IT TO ANYONE! Anyone having this token will be able to see all of your private messages!**
+**Treat the User OAuth Token as password! DO NOT PROVIDE IT TO ANYONE! Anyone having this token will be able to see all of your private messages!**
 
 ### Step 6: Spin up your environment
 
