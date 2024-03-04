@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php';
+require_once 'init.php';
 
 echo <<<PULLING_CONVERSATION_MEMBERS
 ================================================

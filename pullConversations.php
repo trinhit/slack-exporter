@@ -5,7 +5,7 @@
  * This script pulls all the conversations that the currently authorized user can access
  */
 
-require_once 'config.php';
+require_once 'init.php';
 
 echo <<<PULLING_CONVERSATIONS
 ================================================
@@ -13,6 +13,8 @@ echo <<<PULLING_CONVERSATIONS
 ================================================
 
 PULLING_CONVERSATIONS;
+
+$sleepTime = 3;
 
 // Create table
 R::exec("
@@ -134,6 +136,9 @@ do {
     $params['cursor'] = $nextCursor;
 
     echo "\n";
+
+    echo "Sleeping for $sleepTime second(s)...\n";
+    sleep($sleepTime);
 }
 while( strlen($nextCursor) > 0 /*&& $loop < 3*/ );
 

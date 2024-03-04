@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php';
+require_once 'init.php';
 
 echo <<<PULLING_CONVERSATION_BOOKMARKS
 ================================================
@@ -8,6 +8,8 @@ echo <<<PULLING_CONVERSATION_BOOKMARKS
 ================================================
 
 PULLING_CONVERSATION_BOOKMARKS;
+
+$sleepTime = 1;
 
 // Create table
 R::exec("
@@ -78,4 +80,7 @@ foreach ($conversations as $conversation) {
     $numProcessedConversations++;
 
     echo "Processed $numProcessedConversations of $conversationCount conversation(s)\n\n";
+
+    echo "Sleeping for $sleepTime second(s)...\n";
+    sleep($sleepTime);
 }

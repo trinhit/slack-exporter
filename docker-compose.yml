@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   db:
-    image: mariadb:jammy
+    image: mariadb:latest
     container_name: slack_exporter_tool_db # feel free to change this
     hostname: slack_exporter_tool_db # feel free to change this
     restart: unless-stopped

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php';
+require_once 'init.php';
 
 echo <<<PULLING_REACTIONS
 ================================================
@@ -8,6 +8,8 @@ echo <<<PULLING_REACTIONS
 ================================================
 
 PULLING_REACTIONS;
+
+$sleepTime = 1;
 
 // Create table
 R::exec("
@@ -67,4 +69,7 @@ foreach ($messagesWithReactions as $message) {
     echo "Processed $numProcessedMessages of $messagesWithReactionCount messages\n";
 
     echo "\n";
+
+    echo "Sleeping for $sleepTime second(s)...\n";
+    sleep($sleepTime);
 }

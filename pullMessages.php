@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php';
+require_once 'init.php';
 
 echo <<<PULLING_MESSAGES
 ================================================
@@ -8,6 +8,8 @@ echo <<<PULLING_MESSAGES
 ================================================
 
 PULLING_MESSAGES;
+
+$sleepTime = 3;
 
 // Create tables
 R::exec("
@@ -81,6 +83,8 @@ foreach ($conversations as $conversation) {
 
         echo "Loop $loop:\n";
 
+        $startTime = time();
+
         $response = sendPostRequestToSlackApi('search.messages', $params);
         $data = json_decode($response, true);
 
@@ -102,7 +106,7 @@ foreach ($conversations as $conversation) {
             $messagesModel->user_identifier = $message['user'] ?? null;
             $messagesModel->ts = $message['ts'] ?? null; // This is the unique identifier!
             $messagesModel->text = $message['text'] ?? null;
-            $messagesModel->blocks = json_encode($message['blocks']) ?? null;
+            $messagesModel->blocks = isset($message['blocks']) ? json_encode($message['blocks']) : null;
             $messagesModel->permalink = $message['permalink'] ?? null;
 
             // Check if the message is the main thread or a reply
@@ -186,6 +190,19 @@ foreach ($conversations as $conversation) {
 
         echo "\n";
 
+        $passedSeconds = time() - $startTime;
+        echo "$passedSeconds second(s) has passed. ";
+
+        if ($passedSeconds >= $sleepTime) {
+            echo "No need to sleep.\n";
+        }
+        else {
+            $timeNeedToSleep = $sleepTime - $passedSeconds;
+            echo "Sleeping for $timeNeedToSleep second(s)...\n";
+            sleep($timeNeedToSleep);
+        }
+
+        echo "\n";
     }
     while( strlen($nextCursor) > 0 /*&& $loop < 3*/ );
 }

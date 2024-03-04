@@ -52,3 +52,4 @@ Thumbs.db
 /avatars/
 /files/
 /emojis/
+/logs/*.log

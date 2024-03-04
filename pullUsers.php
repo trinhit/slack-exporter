@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php';
+require_once 'init.php';
 
 echo <<<PULLING_USERS
 ================================================
@@ -8,6 +8,8 @@ echo <<<PULLING_USERS
 ================================================
 
 PULLING_USERS;
+
+$sleepTime = 3;
 
 // Create table
 R::exec("
@@ -117,6 +119,9 @@ do {
     $params['cursor'] = $nextCursor;
 
     echo "\n";
+
+    echo "Sleeping for $sleepTime second(s)...\n";
+    sleep($sleepTime);
 }
 while( strlen($nextCursor) > 0 /*&& $loop < 3*/ );
 
