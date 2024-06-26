@@ -48,7 +48,7 @@ foreach ($conversations as $conversation) {
     // Send request to Slack API and get back data
     $response = sendPostRequestToSlackApi('bookmarks.list', $params);
     $data = json_decode($response, true);
-    $bookmarkCount = count($data['bookmarks']);
+    $bookmarkCount = isset($data['bookmarks']) ? count($data['bookmarks']) : 0;
 
     if ($bookmarkCount > 0) {
         // Delete existing records
