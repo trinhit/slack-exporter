@@ -48,7 +48,7 @@ foreach ($conversations as $conversation) {
         // Send request to Slack API and get back data
         $response = sendPostRequestToSlackApi('conversations.members', $params);
         $data = json_decode($response, true);
-        $memberCount = count($data['members']);
+        $memberCount = isset($data['members']) ? count($data['members']) : 0;
 
         if ($memberCount > 0) {
             // Delete existing records
