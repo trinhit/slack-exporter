@@ -44,7 +44,8 @@ if ($emojiCount > 0) {
 
         // Download the custom emoji
         if (validUrl($emojiUrl)) {
-            $targetPath = 'emojis' . DIRECTORY_SEPARATOR . basename($emojiUrl);
+            $emojiExtension = pathinfo(parse_url($emojiUrl, PHP_URL_PATH), PATHINFO_EXTENSION);
+            $targetPath = 'emojis' . DIRECTORY_SEPARATOR . "{$emojiName}.{$emojiExtension}";
             if (!file_exists($targetPath) && downloadSlackFile($emojiUrl, $targetPath)) {
                 $emojisModel->file_local_path = $targetPath;
             }
